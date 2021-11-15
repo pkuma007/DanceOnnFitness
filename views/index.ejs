@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= subject %></title>
-
+    <link rel="icon" href="img/favicon.ico" type="image/ico">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -29,23 +29,28 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
+    <!-- // partial included here  -->
 	<!-- 404 not found -->
 	<% if(page == "pageNotFound") { %>
-	<%- include("./partials/pageNotFound"); %>
-	<% } %>
-	
-	<!-- // partial included here 
-	<%- include("./partials/menu_wraper"); %> 
-    <%- include("./partials/header"); %> 
-	
-	<% if(page == "index") { %>
-	<%- include("./partials/hero_section"); %>
+	    <%- include("./partials/pageNotFound"); %>
+        
+	<% } else if(page == "index") { %>
+	    <%- include("./partials/header"); %> 
+	    <%- include("./partials/hero_section"); %>
+        <%- include("./partials/chooseUsSection"); %> 
+        <%- //include("./partials/classes_section"); %> 
+        <%- include("./partials/pricing_plan") %>
+        <%- include("./partials/gallery_section") %>
+        <%- //include("./partials/team_section") %>
+        <%- include("./partials/testimonials") %>
 	<% } else { %>
-	<%- include("./partials/breadcrumb_section"); %> 
+        <%- include("./partials/header"); %> 
+	    <%- include("./partials/breadcrumb_section"); %>
+        <%- include("./partials/"+page); %> 
 	<% } %>
 	
     <!-- Banner Section Begin -->
-    <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">
+    <!-- <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -57,21 +62,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Banner Section End -->
 	
-	
-	<%- //include("./partials/chooseUsSection"); %> 
-	<%- //include("./partials/classes_section"); %> 
 
 
-	<%- include("./partials/pricing_plan") %>
-	<%- include("./partials/gallery_section") %>
-	<%- //include("./partials/team_section") %>
-	<%- include("./partials/testimonials") %>
 	<%- include("./partials/gettouch_section") %>
 	<%- include("./partials/footer") %>
-
+    <%- include("./partials/enquiry") %>
     <!-- Search model Begin -->
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">

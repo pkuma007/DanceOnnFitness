@@ -28,21 +28,40 @@ app.set('view engine', 'ejs');
 app.get('/',function(req,res){
   res.render('index', {
     subject: 'Dance-ONN Fitness House',
-    page: 'index'
+    page: 'index',
+    pageTitle:'Home'
   });
 });
 //Home Page
 app.get('/home', (request, response) => {
   response.render('index', {
     subject: 'Dance-ONN Fitness House',
-    page: 'index'
+    page: 'index',
+    pageTitle:'Home'
   });
 });
 
 app.get('/about',function(req,res){
   res.render('index', {
     subject: 'Dance-ONN Fitness House',
-    page: 'about'
+    page: 'about-us',
+    pageTitle:'About Us'
+  });
+});
+
+app.get('/contact',function(req,res){
+  res.render('index', {
+    subject: 'Dance-ONN Fitness House',
+    page: 'contact',
+    pageTitle:'Contact Us'
+  });
+});
+
+app.get('/enquiry',function(req,res){
+  res.render('partials/enquiry', {
+    subject: 'Dance-ONN Fitness House',
+    page: 'enquiry',
+    pageTitle:'Contact Us'
   });
 });
 
@@ -56,8 +75,8 @@ app.post("/ajax/email", function(req, res) { // this will be used to send the em
 });
 
 app.get('/users/:userId/books/:bookId', function (req, res) {
-  //res.send(req.params)
-  res.send(__dirname + "/public/404.html", {name:'HelloPK'});
+  res.send(req.params)
+  //res.send("/views/404.html", {name:'HelloPK'});
 });
 
 
@@ -66,7 +85,8 @@ app.get('*', function(req, res){
   //res.send('what???', 404);
   res.render('index', {
     subject: 'Dance-ONN Fitness House',
-    page: 'pageNotFound'
+    page: 'pageNotFound',
+    pageTitle: 'pageNotFound'
   });
   //console.log("Page not Found")
 });
